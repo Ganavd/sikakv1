@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 168 80% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 20% 95%;
+    --secondary-foreground: 168 80% 20%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 168 60% 93%;
+    --accent-foreground: 168 80% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --border-dark: 0 0% 20%;
+    --input: 0 0% 90%;
+    --ring: 168 80% 30%;
+
+    --radius: 0.5rem;
+
+    --document-border: 0 0% 0%;
+    --document-header-bg: 168 20% 96%;
+    --table-header-bg: 168 15% 93%;
+    --table-row-hover: 168 10% 97%;
+
+    --sidebar-background: 168 30% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 168 80% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 40% 20%;
+    --sidebar-accent-foreground: 168 60% 80%;
+    --sidebar-border: 168 20% 18%;
+    --sidebar-ring: 168 80% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 168 80% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 168 40% 20%;
+    --accent-foreground: 168 60% 70%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 46%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+    --border: 0 0% 25%;
+    --border-dark: 0 0% 80%;
+    --input: 0 0% 20%;
+    --ring: 168 80% 45%;
+    --document-border: 0 0% 100%;
+    --document-header-bg: 0 0% 15%;
+    --table-header-bg: 0 0% 18%;
+    --table-row-hover: 0 0% 14%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 168 80% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 40% 15%;
+    --sidebar-accent-foreground: 168 60% 70%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 168 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+  }
+
+  .document-table {
+    @apply w-full border-collapse;
+  }
+
+  .document-table th,
+  .document-table td {
+    @apply border border-document-border p-2 text-sm;
+  }
+
+  .document-table th {
+    @apply bg-table-header font-semibold text-center;
+  }
+
+  .document-table tbody tr:hover {
+    @apply bg-table-row-hover;
+  }
+
+  @media print {
+    body {
+      @apply bg-background text-foreground;
+      font-size: 10pt;
+    }
+    .no-print {
+      display: none !important;
+    }
+    .document-table th,
+    .document-table td {
+      border: 1px solid black !important;
+      padding: 4px 6px;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded font-medium transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2 rounded font-medium transition-colors border border-border;
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success/90 px-4 py-2 rounded font-medium transition-colors;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 px-4 py-2 rounded font-medium transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-border rounded bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+  }
+
+  .card-document {
+    @apply bg-card border-2 border-document-border rounded shadow-sm;
+  }
+
+  .header-document {
+    @apply bg-document-header text-center py-3 border-b-2 border-document-border font-bold text-lg;
+  }
+}
